@@ -14,15 +14,15 @@ const server = new ApolloServer({
     typeDefs,
     resolvers,
     dataSources: () => ({
-      accountAPI: new AccountAPI(),
-      usersAPI: new UsersAPI(),
+        accountAPI: new AccountAPI(),
+        usersAPI: new UsersAPI(),
     }),
     introspection: true,
     playground: true,
     context: authentication
-    
+
 });
 
-server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
+server.listen(process.env.PORT || 4000).then(({ url }) => {
+    console.log(`🚀  Server ready at ${url}`);
 });
