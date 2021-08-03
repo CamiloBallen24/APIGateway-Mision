@@ -1,6 +1,6 @@
 const accountResolver = {
     Query: {
-        accountByUserId: (_, {userId}, { dataSources}) => dataSources.accountAPI.getAccount(userId),
+        accountByUserId: (_, {userId}, { dataSources}) => dataSources.accountAPI.accountByUserId(userId),
     },
     Mutation: {}
 };

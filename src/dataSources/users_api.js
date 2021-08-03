@@ -1,7 +1,7 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
 
 
-class usersAPI extends RESTDataSource {
+class UsersAPI extends RESTDataSource {
     constructor() {
         super();
         this.baseURL = `https://mision-tic-users.herokuapp.com`;
@@ -9,8 +9,7 @@ class usersAPI extends RESTDataSource {
 
     async authRequest(credentials) {
         credentials = new Object(JSON.parse(JSON.stringify(credentials)));
-        const response = await this.post(`/token/`, credentials);
-        return (response.detail) ? this.detailReducer(response) : this.tokenReducer(response);
+        return await this.post(`/token/`, credentials);
     }
 
     async verifyToken(token) {
@@ -19,22 +18,9 @@ class usersAPI extends RESTDataSource {
     }
 
     async refreshToken(token) {
-        token = new Object(JSON.parse(JSON.stringify(token)));
+        token = new Object(JSON.parse(JSON.stringify({refresh: token})));
         return await this.post(`/token/refresh/`, token);
-    }
-
-    tokenReducer(tokens) {
-        return {
-            refresh: tokens.refresh,
-            access: tokens.access
-        };
-    }
-
-    detailReducer(response) {
-        return {
-            detail: response.detail,
-        };
     }
 }
 
-module.exports = usersAPI;
+module.exports = UsersAPI;

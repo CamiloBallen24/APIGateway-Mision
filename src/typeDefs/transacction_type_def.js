@@ -15,13 +15,13 @@ const transacctionTypeDefs = gql`
         value: Int
     }
 
-    type Query {
+    extend type Query {
         transacctionByIdUser(idUser: String!): [Transacction]!
     }
     
-    extend type Mutation {
+    type Mutation {
         createTransacction(transaction: TransacctionInput!): Transacction!
     }
 `;
 
-module.exports = accountTypeDefs; 
+module.exports = transacctionTypeDefs; 
