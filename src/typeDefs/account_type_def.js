@@ -3,7 +3,7 @@ const { gql } = require('apollo-server');
 const accountTypeDefs = gql`
     type Account {
         userId: String!
-        balance: Integer
+        balance: Int
         lastChange: String
     }
     
