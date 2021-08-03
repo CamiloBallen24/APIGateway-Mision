@@ -12,4 +12,4 @@ const accountTypeDefs = gql`
     }
 `;
 
-module.exports = equipoTypeDefs; 
+module.exports = transacctionTypeDefs; 
