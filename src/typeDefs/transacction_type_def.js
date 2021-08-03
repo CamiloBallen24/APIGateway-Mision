@@ -5,14 +5,14 @@ const transacctionTypeDefs = gql`
         id: String!
         userIdOrigin: String
         userIdDestiny: String
-        value: Integer
+        value: Int
         date: String
     }
     
     input TransacctionInput {
         userIdOrigin: String
         userIdDestiny: String
-        value: Integer
+        value: Int
     }
 
     type Query {
