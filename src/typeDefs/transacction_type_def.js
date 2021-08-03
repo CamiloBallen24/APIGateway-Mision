@@ -24,4 +24,4 @@ const transacctionTypeDefs = gql`
     }
 `;
 
-module.exports = equipoTypeDefs; 
+module.exports = accountTypeDefs; 
