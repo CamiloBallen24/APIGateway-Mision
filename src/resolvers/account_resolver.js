@@ -1,6 +1,11 @@
 const accountResolver = {
     Query: {
-        accountByUserId: (_, {userId}, { dataSources}) => dataSources.accountAPI.accountByUserId(userId),
+        accountByUserId: (_, {userId}, { dataSources, userIdToken}) => {
+            if(userId == userIdToken) 
+                return dataSources.accountAPI.accountByUserId(userId)
+            else
+                return null
+        },
     },
     Mutation: {}
 };

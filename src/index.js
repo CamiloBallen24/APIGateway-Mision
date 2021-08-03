@@ -8,6 +8,7 @@ const resolvers = require('./resolvers');
 const AccountAPI = require('./dataSources/account_api');
 const UsersAPI = require('./dataSources/users_api');
 
+const authentication = require('./utils/authentication');
 
 const server = new ApolloServer({
     typeDefs,
@@ -18,6 +19,7 @@ const server = new ApolloServer({
     }),
     introspection: true,
     playground: true,
+    context: authentication
     
 });
 
